@@ -51,8 +51,8 @@ for m = 1:M
 
     %get subsection, inits
     if strcmp(peak_align, "estrous")
-        % t_window(1) = alignment(m);
-        t_window(1) = alignment(m) - 12*24*4; %back to back
+        t_window(1) = alignment(m);
+        % t_window(1) = alignment(m) - 12*24*4; %back to back
     elseif strcmp(peak_align, "peak")
         try
             [~, t_window(1)] = max(tmp_vmh_green(alignment(m):end));
@@ -77,16 +77,6 @@ for m = 1:M
     end
 
     %fill arrays
-    % raw_green{1}(m, (1 + t_shift):(t_stop)) = tmp_mpoa_green(t_window(1):t_window(2)); %mpoa
-    % raw_green{2}(m, (1 + t_shift):(t_stop)) = tmp_vmh_green(t_window(1):t_window(2)); %vmh
-    % raw_red{1}(m, (1 + t_shift):(t_stop)) = tmp_mpoa_red(t_window(1):t_window(2)); %mpoa
-    % raw_red{2}(m, (1 + t_shift):(t_stop)) = tmp_vmh_red(t_window(1):t_window(2)); %vmh
-    % tmac{1}(m, (1 + t_shift):(t_stop)) = tmp_mpoa_tmac(t_window(1):t_window(2)); %mpoa
-    % tmac{2}(m, (1 + t_shift):(t_stop)) = tmp_vmh_tmac(t_window(1):t_window(2)); %vmh
-    % motion{1}(m, (1 + t_shift):(t_stop)) = tmp_mpoa_motion(t_window(1):t_window(2)); %mpoa
-    % motion{2}(m, (1 + t_shift):(t_stop)) = tmp_vmh_motion(t_window(1):t_window(2)); %vmh
-
-    %back to back
     raw_green{1}(m, (1 + t_shift):(t_stop)) = tmp_mpoa_green(t_window(1):t_window(2)); %mpoa
     raw_green{2}(m, (1 + t_shift):(t_stop)) = tmp_vmh_green(t_window(1):t_window(2)); %vmh
     raw_red{1}(m, (1 + t_shift):(t_stop)) = tmp_mpoa_red(t_window(1):t_window(2)); %mpoa
@@ -95,5 +85,15 @@ for m = 1:M
     tmac{2}(m, (1 + t_shift):(t_stop)) = tmp_vmh_tmac(t_window(1):t_window(2)); %vmh
     motion{1}(m, (1 + t_shift):(t_stop)) = tmp_mpoa_motion(t_window(1):t_window(2)); %mpoa
     motion{2}(m, (1 + t_shift):(t_stop)) = tmp_vmh_motion(t_window(1):t_window(2)); %vmh
+
+    %back to back
+    % raw_green{1}(m, (1 + t_shift):(t_stop)) = tmp_mpoa_green(t_window(1):t_window(2)); %mpoa
+    % raw_green{2}(m, (1 + t_shift):(t_stop)) = tmp_vmh_green(t_window(1):t_window(2)); %vmh
+    % raw_red{1}(m, (1 + t_shift):(t_stop)) = tmp_mpoa_red(t_window(1):t_window(2)); %mpoa
+    % raw_red{2}(m, (1 + t_shift):(t_stop)) = tmp_vmh_red(t_window(1):t_window(2)); %vmh
+    % tmac{1}(m, (1 + t_shift):(t_stop)) = tmp_mpoa_tmac(t_window(1):t_window(2)); %mpoa
+    % tmac{2}(m, (1 + t_shift):(t_stop)) = tmp_vmh_tmac(t_window(1):t_window(2)); %vmh
+    % motion{1}(m, (1 + t_shift):(t_stop)) = tmp_mpoa_motion(t_window(1):t_window(2)); %mpoa
+    % motion{2}(m, (1 + t_shift):(t_stop)) = tmp_vmh_motion(t_window(1):t_window(2)); %vmh
 end
 end

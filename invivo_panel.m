@@ -20,17 +20,13 @@ cd("/Volumes/AlQahwa/SeeER_paper/exogenous_data");
 plotRawTrace(e2_raw_green{1, 2}, e2_raw_red{1, 2}, "raw_injection_panel_vmh0.pdf", [80 240], T_inj_e2{1})
 plotRawTrace(e2_raw_green{2, 2}, e2_raw_red{2, 2}, "raw_injection_panel_vmh1.pdf", [80 240], T_inj_e2{2})
 plotRawTrace(e2_raw_green{3, 2}, e2_raw_red{3, 2}, "raw_injection_panel_vmh2.pdf", [80 240], T_inj_e2{3})
-%%
 plotRawTrace(one_microgram_green{1, 2}, one_microgram_red{1, 2}, "1ug_e2_injection_panel_vmh0.pdf", [75 360], T_inj_one{1})
-%%
 plotRawTrace(oil_raw_green{1, 2}, oil_raw_red{1, 2}, "oil_injection_panel_vmh0.pdf", [80 240], T_inj_oil{1})
 plotRawTrace(oil_raw_green{2, 2}, oil_raw_red{2, 2}, "oil_injection_panel_vmh1.pdf", [80 240], T_inj_oil{2})
 plotRawTrace(e2_raw_green{1, 1}, e2_raw_red{1, 1}, "raw_injection_panel_mpo0.pdf", [90 160], T_inj_e2{1})
 plotRawTrace(e2_raw_green{2, 1}, e2_raw_red{2, 1}, "raw_injection_panel_mpo1.pdf", [90 160], T_inj_e2{1})
 plotRawTrace(e2_raw_green{3, 1}, e2_raw_red{3, 1}, "raw_injection_panel_mpo2.pdf", [90 160], T_inj_e2{1})
-%%
 plotRawTrace(one_microgram_green{1, 1}, one_microgram_red{1, 1}, "1ug_e2_injection_panel_mpo0.pdf", [90 160], T_inj_one{1})
-%%
 plotRawTrace(oil_raw_green{1, 1}, oil_raw_red{1, 1}, "oil_injection_panel_mpo0.pdf", [90 160], T_inj_oil{1})
 plotRawTrace(oil_raw_green{2, 1}, oil_raw_red{2, 1}, "oil_injection_panel_mpo1.pdf", [90 160], T_inj_oil{2})
 
@@ -80,13 +76,12 @@ T_estrous = (1/12:1/12:24*4);
 redblue_map = [linspace(120, 255, 128)', linspace(160, 255, 128)', linspace(193, 255, 128)'; ...
     255, 255, 255; linspace(255, 224, 128)', linspace(255, 97, 128)', linspace(255, 97, 128)'] ./ 255;
 
-%load
-[b2b_estrous_raw_green, b2b_estrous_raw_red] = ...
-    load_endogenous_data("m005", "20241024", 2842, 0, "estrous");
+%% back to back data
+% %load
+% [b2b_estrous_raw_green, b2b_estrous_raw_red] = load_endogenous_data("m005", "20241024", 2842, 0, "estrous");
+% plotBackToBack(b2b_estrous_raw_green, b2b_estrous_raw_red)
 
-%% plot back to back
-plotBackToBack(b2b_estrous_raw_green, b2b_estrous_raw_red)
-
+%% single estrous cycles
 %load
 [estrous_raw_green, estrous_raw_red, estrous_tmac, estrous_motion] = ...
     load_endogenous_data(estrous_mice, estrous_dates, estrous_alignment, down_sample_flag, "estrous");
